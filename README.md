@@ -11,12 +11,12 @@ Some topics covered:
 - Publishing and subscribing to MQTT messages
 - Sending those messages from a local notebook
 - Triggers to write messages to buckets / databases in AWS
-- Sending and receiving messages to/from and IoT device (and writing them to buckets / databases)
+- Sending and receiving messages to/from an IoT device (and writing them to buckets / databases)
 - Lambda functions
 
 Check out section ``E. Demos`` for more information.
 
-The complicated part is (surprise!) setting all those rights IAMs in AWS.
+The complicated part is (surprise!) setting all those rights/IAMs in AWS.
 
 But do not worry - I will provide complete, step-by-step examples and documentation.
 
@@ -160,7 +160,7 @@ For code that you run from the notebooks, we assume that you have god-like privi
 
 Before starting, please create an S3 bucket named ``my-test-bucket``.
 
-You need to go there examples in the ascending order.
+You need to go these examples in the ascending order.
 
 ### 1. Grant AWS access to IoT device
 
