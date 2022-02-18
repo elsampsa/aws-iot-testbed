@@ -1,0 +1,23 @@
+version: "2.3"
+
+services:
+
+  thing1:
+    container_name: thing1
+    image: thing
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: /app/dev/run.bash
+    volumes:
+    - ./app:/app/common # scripts common to all things
+    - ./dev:/app/dev # endpoints common to all things
+    - ./thing1/cert:/app/cert # certificates for thing1
+    - ./thing1/app:/app/private # scripts only for thing1
+    ports:
+      - "8883:8883"
+    networks:
+        default:
+          aliases:
+            - things
+  # add another thing..
