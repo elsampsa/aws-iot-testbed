@@ -97,6 +97,27 @@ in the [notebook/](notebook/) ``token_generation_test.ipynb``.
 
 I recommend to go through the step-by-step demos in ``E. Demos``.
 
+I *think* that the entities / logic is this:
+```
+
++--------------------------+  -----> gives creds, according to a role alias
+|IoT credentials provider  |         "my-role-alias"  ---> creds allows stuff according to 
+|server                    |                                        "my-role-credentials"
+|                          |
++--------------------------+  <----- request creds according to role alias
+  - can give creds requested         "my-role-alias" --link--> role "my-role-credentials"
+    with certs because role          creds are requested with certificates
+    because role alias
+    "my-role-alias" has
+    "it:AssumeRoleWithCertificate"
+    enabled
+
+  - can give creds for "my-role-alias"
+    in the first place, since "my-role-alias"
+    role alias "inherits" role "my-role-credentials"
+
+```
+
 ## C. Start a thing
 
 *these won't work until you set the rights in part (E)*
@@ -203,6 +224,9 @@ You need to go there examples in the ascending order.
 - [Authorizing IoT devices](https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html)
 - [Assuming roles](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html)
 - [MQTT => rule => lambda](https://docs.aws.amazon.com/iot/latest/developerguide/iot-lambda-rule.html)
+- [More about authorizing](https://github.com/aws/aws-iot-device-sdk-embedded-C/tree/main/demos/http/http_demo_s3_download)
+- [A question](https://repost.aws/questions/QU6wQqu_1SSl65dCJthyDKnA#AN4wNktm8pTVStQCEe_MgK9w)
+- [A SageMaker demo](https://github.com/aws-samples/amazon-sagemaker-edge-manager-demo)
 
 ## Copyright
 
